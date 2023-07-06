@@ -1,6 +1,7 @@
 package org.example.entity;
 
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
