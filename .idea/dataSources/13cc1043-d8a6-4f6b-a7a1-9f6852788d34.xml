@@ -3,9 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.41">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>737</IntrospectionStateNumber>
+      <IntrospectionStateNumber>743</IntrospectionStateNumber>
       <ServerVersion>14.5</ServerVersion>
-      <StartupTime>1688539534</StartupTime>
+      <StartupTime>1688627226</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -1400,8 +1400,10 @@ true posixrules
 13391||10|C|G
 13391||-9223372036854775808|U|G
 13391||10|U|G</Grants>
-      <IntrospectionStateNumber>737</IntrospectionStateNumber>
+      <IntrospectionStateNumber>743</IntrospectionStateNumber>
       <ObjectId>13757</ObjectId>
+      <Relations>sequence|table|16390|16391|1
+</Relations>
       <OwnerName>user</OwnerName>
     </database>
     <role id="4" parent="1" name="pg_database_owner">
@@ -4821,18 +4823,60 @@ true posixrules
     <schema id="262" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>737</IntrospectionStateNumber>
+      <IntrospectionStateNumber>743</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>527</StateNumber>
       <OwnerName>user</OwnerName>
     </schema>
-    <table id="263" parent="262" name="test">
+    <sequence id="263" parent="262" name="raw_data_id_seq">
+      <DataType>bigint|0s</DataType>
+      <ObjectId>16390</ObjectId>
+      <StateNumber>738</StateNumber>
+      <OwnerName>user</OwnerName>
+    </sequence>
+    <table id="264" parent="262" name="raw_data">
+      <ObjectId>16391</ObjectId>
+      <StateNumber>738</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>user</OwnerName>
+    </table>
+    <table id="265" parent="262" name="test">
       <ObjectId>16385</ObjectId>
       <StateNumber>736</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>user</OwnerName>
     </table>
-    <column id="264" parent="263" name="name">
+    <column id="266" parent="264" name="id">
+      <DataType>bigint|0s</DataType>
+      <DefaultExpression>nextval(&apos;raw_data_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>738</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="267" parent="264" name="event">
+      <DataType>jsonb|0s</DataType>
+      <Position>2</Position>
+      <StateNumber>738</StateNumber>
+      <TypeId>3802</TypeId>
+    </column>
+    <index id="268" parent="264" name="raw_data_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16397</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>738</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="269" parent="264" name="raw_data_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16398</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>738</StateNumber>
+      <UnderlyingIndexId>16397</UnderlyingIndexId>
+    </key>
+    <column id="270" parent="265" name="name">
       <DataType>text|0s</DataType>
       <Position>1</Position>
       <StateNumber>736</StateNumber>
