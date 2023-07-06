@@ -5,13 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>Pogreb</artifactId>
+    <artifactId>TelegramBotCloud</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
         <module>dispatcher</module>
         <module>common-rabbitmq</module>
         <module>node</module>
+        <module>common-jpa</module>
     </modules>
 
     <properties>
