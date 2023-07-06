@@ -1,4 +1,5 @@
 # Project exclude paths
 /common-rabbitmq/target/
 /dispatcher/target/
+/logs
 /node/target/
