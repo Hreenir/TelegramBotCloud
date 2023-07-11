@@ -3,15 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.41">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-13756||-9223372036854775808|c|G
-13756||10|c|G
-13756||10|C|G
-13756||10|T|G</Grants>
-      <IntrospectionStateNumber>755</IntrospectionStateNumber>
+      <IntrospectionStateNumber>760</IntrospectionStateNumber>
       <ServerVersion>14.5</ServerVersion>
       <StartupTime>1688648288</StartupTime>
       <TimeZones>true ACDT
@@ -1408,7 +1400,7 @@ true posixrules
 13391||10|C|G
 13391||-9223372036854775808|U|G
 13391||10|U|G</Grants>
-      <IntrospectionStateNumber>755</IntrospectionStateNumber>
+      <IntrospectionStateNumber>760</IntrospectionStateNumber>
       <ObjectId>13757</ObjectId>
       <Relations>sequence|table|16399|16400|1
 sequence|table|16390|16391|1
@@ -4832,7 +4824,7 @@ sequence|table|16390|16391|1
     <schema id="262" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>755</IntrospectionStateNumber>
+      <IntrospectionStateNumber>760</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>527</StateNumber>
       <OwnerName>user</OwnerName>
@@ -4890,7 +4882,7 @@ sequence|table|16390|16391|1
     <column id="271" parent="265" name="first_login_date">
       <DataType>timestamp(6)|0s</DataType>
       <Position>3</Position>
-      <StateNumber>752</StateNumber>
+      <StateNumber>756</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="272" parent="265" name="first_name">
