@@ -3,9 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.41">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>760</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1114</IntrospectionStateNumber>
       <ServerVersion>14.5</ServerVersion>
-      <StartupTime>1688648288</StartupTime>
+      <StartupTime>1689590136</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -1400,10 +1400,12 @@ true posixrules
 13391||10|C|G
 13391||-9223372036854775808|U|G
 13391||10|U|G</Grants>
-      <IntrospectionStateNumber>760</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1114</IntrospectionStateNumber>
       <ObjectId>13757</ObjectId>
-      <Relations>sequence|table|16399|16400|1
-sequence|table|16390|16391|1
+      <Relations>sequence|table|16385|16386|1
+sequence|table|16394|16395|1
+sequence|table|16404|16405|1
+sequence|table|16413|16414|1
 </Relations>
       <OwnerName>user</OwnerName>
     </database>
@@ -4824,120 +4826,244 @@ sequence|table|16390|16391|1
     <schema id="262" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>760</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1114</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>527</StateNumber>
       <OwnerName>user</OwnerName>
     </schema>
-    <sequence id="263" parent="262" name="app_user_id_seq">
+    <sequence id="263" parent="262" name="app_document_id_seq">
       <DataType>bigint|0s</DataType>
-      <ObjectId>16399</ObjectId>
-      <StateNumber>752</StateNumber>
-      <OwnerName>user</OwnerName>
-    </sequence>
-    <sequence id="264" parent="262" name="raw_data_id_seq">
-      <DataType>bigint|0s</DataType>
-      <ObjectId>16390</ObjectId>
-      <StateNumber>738</StateNumber>
-      <OwnerName>user</OwnerName>
-    </sequence>
-    <table id="265" parent="262" name="app_user">
-      <ObjectId>16400</ObjectId>
-      <StateNumber>752</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>user</OwnerName>
-    </table>
-    <table id="266" parent="262" name="raw_data">
-      <ObjectId>16391</ObjectId>
-      <StateNumber>738</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>user</OwnerName>
-    </table>
-    <table id="267" parent="262" name="test">
       <ObjectId>16385</ObjectId>
+      <StateNumber>735</StateNumber>
+      <OwnerName>user</OwnerName>
+    </sequence>
+    <sequence id="264" parent="262" name="app_user_id_seq">
+      <DataType>bigint|0s</DataType>
+      <ObjectId>16394</ObjectId>
+      <StateNumber>736</StateNumber>
+      <OwnerName>user</OwnerName>
+    </sequence>
+    <sequence id="265" parent="262" name="binary_content_id_seq">
+      <DataType>bigint|0s</DataType>
+      <ObjectId>16404</ObjectId>
+      <StateNumber>737</StateNumber>
+      <OwnerName>user</OwnerName>
+    </sequence>
+    <sequence id="266" parent="262" name="raw_data_id_seq">
+      <DataType>bigint|0s</DataType>
+      <ObjectId>16413</ObjectId>
+      <StateNumber>738</StateNumber>
+      <OwnerName>user</OwnerName>
+    </sequence>
+    <table id="267" parent="262" name="app_document">
+      <ObjectId>16386</ObjectId>
+      <StateNumber>741</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>user</OwnerName>
+    </table>
+    <table id="268" parent="262" name="app_user">
+      <ObjectId>16395</ObjectId>
       <StateNumber>736</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>user</OwnerName>
     </table>
-    <check id="268" parent="265" name="app_user_state_check">
+    <table id="269" parent="262" name="binary_content">
+      <ObjectId>16405</ObjectId>
+      <StateNumber>741</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>user</OwnerName>
+    </table>
+    <table id="270" parent="262" name="raw_data">
+      <ObjectId>16414</ObjectId>
+      <StateNumber>738</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>user</OwnerName>
+    </table>
+    <column id="271" parent="267" name="id">
+      <DataType>bigint|0s</DataType>
+      <DefaultExpression>nextval(&apos;app_document_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>735</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="272" parent="267" name="doc_name">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>2</Position>
+      <StateNumber>735</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="273" parent="267" name="file_size">
+      <DataType>bigint|0s</DataType>
+      <Position>3</Position>
+      <StateNumber>735</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="274" parent="267" name="mime_type">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>4</Position>
+      <StateNumber>735</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="275" parent="267" name="telegram_field">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>5</Position>
+      <StateNumber>735</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="276" parent="267" name="binary_content_id">
+      <DataType>bigint|0s</DataType>
+      <Position>6</Position>
+      <StateNumber>735</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <foreign-key id="277" parent="267" name="fkfcm2si6jix496diei6g94rrxm">
+      <ColNames>binary_content_id</ColNames>
+      <ObjectId>16424</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>741</StateNumber>
+      <RefTableId>16405</RefTableId>
+      <RefTableName>binary_content</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="278" parent="267" name="app_document_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16392</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>735</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="279" parent="267" name="uk_s9nc7867rk4c59viw2i95edru">
+      <ColNames>binary_content_id</ColNames>
+      <ObjectId>16422</ObjectId>
+      <StateNumber>740</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="280" parent="267" name="app_document_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16393</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>735</StateNumber>
+      <UnderlyingIndexId>16392</UnderlyingIndexId>
+    </key>
+    <key id="281" parent="267" name="uk_s9nc7867rk4c59viw2i95edru">
+      <ObjectId>16423</ObjectId>
+      <StateNumber>740</StateNumber>
+      <UnderlyingIndexId>16422</UnderlyingIndexId>
+    </key>
+    <check id="282" parent="268" name="app_user_state_check">
       <ColNames>state</ColNames>
-      <ObjectId>16404</ObjectId>
+      <ObjectId>16399</ObjectId>
       <Predicate>(state)::text = ANY ((ARRAY[&apos;BASIC_STATE&apos;::character varying, &apos;WAIT_FOR_EMAIL_STATE&apos;::character varying])::text[])</Predicate>
-      <StateNumber>752</StateNumber>
+      <StateNumber>736</StateNumber>
     </check>
-    <column id="269" parent="265" name="id">
+    <column id="283" parent="268" name="id">
       <DataType>bigint|0s</DataType>
       <DefaultExpression>nextval(&apos;app_user_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>752</StateNumber>
+      <StateNumber>736</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="270" parent="265" name="email">
+    <column id="284" parent="268" name="email">
       <DataType>varchar(255)|0s</DataType>
       <Position>2</Position>
-      <StateNumber>752</StateNumber>
+      <StateNumber>736</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="271" parent="265" name="first_login_date">
+    <column id="285" parent="268" name="first_login_date">
       <DataType>timestamp(6)|0s</DataType>
       <Position>3</Position>
-      <StateNumber>756</StateNumber>
+      <StateNumber>1112</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="272" parent="265" name="first_name">
+    <column id="286" parent="268" name="first_name">
       <DataType>varchar(255)|0s</DataType>
       <Position>4</Position>
-      <StateNumber>752</StateNumber>
+      <StateNumber>736</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="273" parent="265" name="is_active">
+    <column id="287" parent="268" name="is_active">
       <DataType>boolean|0s</DataType>
       <Position>5</Position>
-      <StateNumber>752</StateNumber>
+      <StateNumber>736</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="274" parent="265" name="last_name">
+    <column id="288" parent="268" name="last_name">
       <DataType>varchar(255)|0s</DataType>
       <Position>6</Position>
-      <StateNumber>752</StateNumber>
+      <StateNumber>736</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="275" parent="265" name="state">
+    <column id="289" parent="268" name="state">
       <DataType>varchar(255)|0s</DataType>
       <Position>7</Position>
-      <StateNumber>752</StateNumber>
+      <StateNumber>736</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="276" parent="265" name="telegram_user_id">
+    <column id="290" parent="268" name="telegram_user_id">
       <DataType>bigint|0s</DataType>
       <Position>8</Position>
-      <StateNumber>752</StateNumber>
+      <StateNumber>736</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="277" parent="265" name="user_name">
+    <column id="291" parent="268" name="user_name">
       <DataType>varchar(255)|0s</DataType>
       <Position>9</Position>
-      <StateNumber>752</StateNumber>
+      <StateNumber>736</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="278" parent="265" name="app_user_pkey">
+    <index id="292" parent="268" name="app_user_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16407</ObjectId>
+      <ObjectId>16402</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>752</StateNumber>
+      <StateNumber>736</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="279" parent="265" name="app_user_pkey">
+    <key id="293" parent="268" name="app_user_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16408</ObjectId>
+      <ObjectId>16403</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>752</StateNumber>
-      <UnderlyingIndexId>16407</UnderlyingIndexId>
+      <StateNumber>736</StateNumber>
+      <UnderlyingIndexId>16402</UnderlyingIndexId>
     </key>
-    <column id="280" parent="266" name="id">
+    <column id="294" parent="269" name="id">
+      <DataType>bigint|0s</DataType>
+      <DefaultExpression>nextval(&apos;binary_content_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>737</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="295" parent="269" name="file_as_array_of_bytes">
+      <DataType>bytea|0s</DataType>
+      <Position>2</Position>
+      <StateNumber>1113</StateNumber>
+      <TypeId>17</TypeId>
+    </column>
+    <index id="296" parent="269" name="binary_content_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16411</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>737</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="297" parent="269" name="binary_content_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16412</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>737</StateNumber>
+      <UnderlyingIndexId>16411</UnderlyingIndexId>
+    </key>
+    <column id="298" parent="270" name="id">
       <DataType>bigint|0s</DataType>
       <DefaultExpression>nextval(&apos;raw_data_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4945,33 +5071,27 @@ sequence|table|16390|16391|1
       <StateNumber>738</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="281" parent="266" name="event">
+    <column id="299" parent="270" name="event">
       <DataType>jsonb|0s</DataType>
       <Position>2</Position>
       <StateNumber>738</StateNumber>
       <TypeId>3802</TypeId>
     </column>
-    <index id="282" parent="266" name="raw_data_pkey">
+    <index id="300" parent="270" name="raw_data_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16397</ObjectId>
+      <ObjectId>16420</ObjectId>
       <Primary>1</Primary>
       <StateNumber>738</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="283" parent="266" name="raw_data_pkey">
+    <key id="301" parent="270" name="raw_data_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16398</ObjectId>
+      <ObjectId>16421</ObjectId>
       <Primary>1</Primary>
       <StateNumber>738</StateNumber>
-      <UnderlyingIndexId>16397</UnderlyingIndexId>
+      <UnderlyingIndexId>16420</UnderlyingIndexId>
     </key>
-    <column id="284" parent="267" name="name">
-      <DataType>text|0s</DataType>
-      <Position>1</Position>
-      <StateNumber>736</StateNumber>
-      <TypeId>25</TypeId>
-    </column>
   </database-model>
 </dataSource>
