@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j;
 import org.example.dao.AppUserDAO;
 import org.example.dao.RawDataDAO;
 import org.example.entity.AppDocument;
+import org.example.entity.AppPhoto;
 import org.example.entity.AppUser;
 import org.example.entity.RawData;
 import org.example.exceptions.UploadFileException;
@@ -76,6 +77,26 @@ public class MainServiceImpl implements MainService {
             sendAnswer(error, chatId);
         }
     }
+    @Override
+    public void processPhotoMessage(Update update) {
+        saveRawData(update);
+        var appUser = findOrSaveAppUser(update);
+        var chatId = update.getMessage().getChatId();
+        if (isNotAllowToSendContent(chatId, appUser)) {
+            return;
+        }
+        try {
+            AppPhoto photo = fileService.processPhoto(update.getMessage());
+            //TODO
+            var answer = "Документ успешно загружен! Ссылка для скачивания: https://test.ru/get-photo/777";
+            sendAnswer(answer, chatId);
+        } catch (UploadFileException e) {
+            log.error(e);
+            String error = "К сожалению загрузка фото не удалась. Повторите попытку позже.";
+            sendAnswer(error, chatId);
+        }
+
+    }
 
     private boolean isNotAllowToSendContent(Long chatId, AppUser appUser) {
         var userState = appUser.getState();
@@ -89,19 +110,6 @@ public class MainServiceImpl implements MainService {
             return true;
         }
         return false;
-    }
-
-    @Override
-    public void processPhotoMessage(Update update) {
-        saveRawData(update);
-        var appUser = findOrSaveAppUser(update);
-        var chatId = update.getMessage().getChatId();
-        if (isNotAllowToSendContent(chatId, appUser)) {
-            return;
-        }
-        //TODO
-        var answer = "Документ успешно загружен! Ссылка для скачивания: https://test.ru/get-photo/777";
-        sendAnswer(answer, chatId);
     }
 
     private void sendAnswer(String output, Long chatId) {
