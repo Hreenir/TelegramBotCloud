@@ -2,7 +2,7 @@ package org.example.controller;
 
 import lombok.extern.log4j.Log4j;
 import org.example.service.UpdateProducer;
-import org.example.utils.MessageUtils;
+import org.example.MessageUtils;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
